@@ -1,5 +1,5 @@
 export default function Home() {
   return (
-    <h1>Starting dashboard</h1>
+    <h1>Almost before we knew it, we had left the ground.</h1>
   )
 }
