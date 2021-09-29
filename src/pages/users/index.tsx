@@ -1,4 +1,4 @@
-import NextLink from 'next/link';
+import Link from 'next/link';
 import { Text, Box, Flex, Heading, Button, Icon, Table, Thead, Th, Tr, Checkbox, Tbody, Td, useBreakpointValue } from "@chakra-ui/react"
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
@@ -25,7 +25,7 @@ export default function UserList() {
                 Usuários
             </Heading>
 
-            <NextLink href="/users/create" passHref>
+            <Link href="/users/create" passHref>
               <Button 
                 as="a" 
                 size="sm" 
@@ -35,7 +35,7 @@ export default function UserList() {
               >
                 Criar novo
               </Button>
-            </NextLink>
+            </Link>
           </Flex>
       
           <Table colorScheme="whiteAlpha">

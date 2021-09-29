@@ -1,4 +1,5 @@
-import { Box, Flex, Heading, Divider, HStack, VStack, SimpleGrid, Button} from "@chakra-ui/react"
+import { Box, Flex, Heading, Divider, HStack, VStack, SimpleGrid, Button} from "@chakra-ui/react";
+import Link from 'next/link';
 
 import { Header } from "../../components/Header";
 import { SideBar } from "../../components/Sidebar";
@@ -51,7 +52,9 @@ export default function CreateList() {
 
           <Flex mt="8" justify="flex-end">
             <HStack spacing="4">
-              <Button colorScheme="whiteAlpha">Cancelar</Button>
+              <Link href='/users' passHref>
+                <Button colorScheme="whiteAlpha">Cancelar</Button>
+              </Link>
               <Button 
                   type="submit" 
                   colorScheme="pink"
