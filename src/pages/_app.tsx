@@ -1,11 +1,16 @@
 import { AppProps } from 'next/dist/shared/lib/router/router';
 import { ChakraProvider } from '@chakra-ui/react';
+
+import { SidebarDrawerProvider } from '../contexts/SideBarDrawerContext';
+
 import { theme } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <SidebarDrawerProvider>
+        <Component {...pageProps} />
+      </SidebarDrawerProvider>
     </ChakraProvider>
   ) 
 }

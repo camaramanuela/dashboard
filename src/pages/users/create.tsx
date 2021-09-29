@@ -1,4 +1,5 @@
-import { Box, Flex, Heading, Divider, HStack, VStack, SimpleGrid, Button} from "@chakra-ui/react"
+import { Box, Flex, Heading, Divider, HStack, VStack, SimpleGrid, Button} from "@chakra-ui/react";
+import Link from 'next/link';
 
 import { Header } from "../../components/Header";
 import { SideBar } from "../../components/Sidebar";
@@ -16,14 +17,14 @@ export default function CreateList() {
           flex="1" 
           borderRadius={8} 
           bg="gray.800" 
-          p="8"
+          p={["6", "8"]}
         >
           <Heading size="lg" fontWeight="normal">Criar usuário</Heading>
 
           <Divider my="6" borderColor="gray.700"/>
 
           <VStack spacing="8">
-            <SimpleGrid minChildWidth="240px" spacing="8" w="100%">
+            <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
               <Input 
                 name="name" 
                 label="Nome completo" 
@@ -51,7 +52,9 @@ export default function CreateList() {
 
           <Flex mt="8" justify="flex-end">
             <HStack spacing="4">
-              <Button colorScheme="whiteAlpha">Cancelar</Button>
+              <Link href='/users' passHref>
+                <Button colorScheme="whiteAlpha">Cancelar</Button>
+              </Link>
               <Button 
                   type="submit" 
                   colorScheme="pink"
