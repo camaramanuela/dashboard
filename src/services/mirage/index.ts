@@ -2,9 +2,7 @@ import {
   createServer,
   Factory,
   Model,
-  Server,
-  Response,
-  ActiveModelSerializer,
+  Response
 } from 'miragejs'
 import faker from 'faker'
 
@@ -14,11 +12,8 @@ type User = {
   created_at: string
 }
 
-export function makeServer(): Server {
+export function makeServer() {
   const server = createServer({
-    serializers: {
-      application: ActiveModelSerializer,
-    },
     models: {
       user: Model.extend<Partial<User>>({}),
     },
@@ -31,7 +26,7 @@ export function makeServer(): Server {
           return faker.internet.email().toLowerCase()
         },
         createdAt() {
-          return faker.date.recent(100)
+          return faker.date.recent(10)
         },
       }),
     },
