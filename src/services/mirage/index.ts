@@ -2,7 +2,8 @@ import {
   createServer,
   Factory,
   Model,
-  Response
+  Response,
+  ActiveModelSerializer,
 } from 'miragejs'
 import faker from 'faker'
 
@@ -14,6 +15,9 @@ type User = {
 
 export function makeServer() {
   const server = createServer({
+    serializers: {
+      application: ActiveModelSerializer,
+    },
     models: {
       user: Model.extend<Partial<User>>({}),
     },
@@ -25,14 +29,14 @@ export function makeServer() {
         email() {
           return faker.internet.email().toLowerCase()
         },
-        createdAt() {
+        created_at() {
           return faker.date.recent(10)
         },
       }),
     },
 
     seeds(server) {
-      server.createList('user', 200)
+      server.createList('user', 30)
     },
     
     routes() {
@@ -47,7 +51,8 @@ export function makeServer() {
         const pageStart = (Number(currentPage) - 1) * Number(per_page)
         const pageEnd = pageStart + Number(per_page)
 
-        const users = this.serialize(schema.all('user')).users.slice(
+        const users = this.serialize(schema.all('user')).users
+        .slice(
           pageStart,
           pageEnd
         )
